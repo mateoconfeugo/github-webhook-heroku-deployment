@@ -27,8 +27,6 @@
    :ssh-private-key (get-ssh-private-key app-name (:ssh-private-key opts))
    :access-key (get-access-key (:access-key opts))})
 
-
-
 (defn run
   "Run the shell commands with the correct environment variables returning exit status code"
   [app-path cmd]
@@ -46,8 +44,11 @@
   [{:keys [app-name github-repo-uri heroku-repo-uri] :as args}]
   {:fetch-and-reset  (format   "cd  %s /repo && git fetch && git reset --hard origin/master" app-name)
    :clone (format "cd %s  && git clone https://%s repo" app-name  github-repo-uri)
-   :push-to-heroku (format "cd %s/repo && heroku git:remote -a %s && git push heroku master" app-name app-name app-name  heroku-repo-uri)
+   ;;   :push-to-heroku (format "cd %s/repo && heroku git:remote -a %s && git push heroku master" app-name app-name app-name  heroku-repo-uri)
+   :push-to-heroku (format "cd %s/repo && git remote add heroku git@heroku.com:%s.git && git push heroku master"
+                           app-name app-name)
    :remove-staging-dir (format "rm -rf %s" app-name)})
+
 
 (defn prepare-staging-area
   "Create a staging area"
