@@ -39,10 +39,7 @@
 ;;=========================================================================
 ;; UNIT TEST:  Make sure the external process runs the proper shell commands
 ;;=========================================================================
-(def git-fetch-test-cmd nil)
-(def git-clone-test-cmd nil)
-(:push-to-heroku test-git-deploy-cmds)
-;;(deploy test-params)
+(deploy test-params)
 
 ;;========================================================================
 ;; ACCEPTANCE TEST: Ring Compojure clojure web app installed from github
