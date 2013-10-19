@@ -49,7 +49,8 @@
    ;;   :push-to-heroku (format "cd %s/repo && heroku git:remote -a %s && git push heroku master" app-name app-name app-name  heroku-repo-uri)
    :push-to-heroku (format "cd %s/repo && git remote add heroku git@heroku.com:%s.git &&  git config heroku.remote heroku && git push heroku master"
                            app-name app-name)
-   :remove-staging-dir (format "rm -rf %s" app-name)})
+   ;:remove-staging-dir (format "rm -rf %s" app-name)
+   })
 
 :push-to-heroku
 ;;   (run app-path (str "cd " app "/repo && bundle install --without=production && bundle exec jekyll build && git add . && git commit -am 'auto-build update' && git push -f " (env (str app "_HEROKU_REPO")) " master"))
@@ -74,7 +75,9 @@
                  (run app-path (:fetch-and-reset cmds)) ;"Starting repo update"
                  (run app-path (:clone cmds)))]
     (do (run app-path (:push-to-heroku cmds))
-        (run app-path (:remove-staging-dir cmds)))))
+;;        (run app-path (:remove-staging-dir cmds))
+        )))
+
 
 (defroutes main-routes
   (GET "/" [] "<h1>Nothing to see here, move along</h1>")
