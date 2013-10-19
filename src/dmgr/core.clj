@@ -85,4 +85,7 @@
 
 (def app (handler/site main-routes))
 
-(defn -main [] (run-jetty #'app {:port (Integer/parseInt (env "PORT" "5000")) :join true}))
+(defn start [web-application port]
+  (run-jetty web-application {:port port :join? false}))
+
+(defn -main [& port] (start app (Integer/parseInt (or (System/getenv "PORT") "8087"))))
