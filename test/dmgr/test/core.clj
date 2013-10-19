@@ -42,7 +42,7 @@
 (def git-fetch-test-cmd nil)
 (def git-clone-test-cmd nil)
 (:push-to-heroku test-git-deploy-cmds)
-;(deploy test-params)
+;;(deploy test-params)
 
 ;;========================================================================
 ;; ACCEPTANCE TEST: Ring Compojure clojure web app installed from github
@@ -50,9 +50,11 @@
 ;;========================================================================
 (def test-webhook-uri "/deploy?app=lhg&key=test123")
 
-(get-github-repo-uri "lhg" "blarg")
+(get-github-repo-uri "lhg" )
+(get-heroku-repo-uri "lhg" )
 (get-ssh-private-key "lhg")
 
 
-(expect true (= (:status (app (request :post test-webhook-uri))) 200))
-(keys (System/getenv ))
+;;(expect true (= (:status (app (request :post test-webhook-uri))) 200))
+
+;;(keys (System/getenv ))
