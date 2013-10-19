@@ -63,6 +63,7 @@
             (.mkdir (io/file (str app-path "/.ssh")))
             (spit (str app-path "/.ssh/id_rsa") ssh-private-key)))
 
+
 (defn deploy
   "Creates and executes the respect git shell commands to update or initially clone a repo
    to a staging directory.  From this staging directory deploy the application to heroku"
