@@ -12,7 +12,7 @@
                  [conch "0.3.1"]
                  [tentacles "0.2.6"]
                  [clj-jgit "0.6.1"]
-                 [me.raynes/fs "1.4.4"]
+                 [me.raynes/fs "1.4.5"]
                  [org.eclipse.jgit "3.1.0.201310021548-r"]
                  [net.lstoll/utils "0.3.2"]]
   :profiles  {:dev {:dependencies [[expectations "1.4.56"]
