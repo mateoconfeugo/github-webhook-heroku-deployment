@@ -1,0 +1,8 @@
+title: Github-webhook-heroku-deployment
+description: web hook triggers repo to be published into heroku
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-minimal
+
+gems:
+  - jekyll-mentions
